@@ -7,7 +7,7 @@
 <div class="card-container">
 	<div class="pokemon-info">
 		<span class="pokemon-name">{pokemon.name}</span>
-		<span class="pokemon-number">{`${pokemon.order.toString().padStart(3, '0')}`}</span>
+		<span class="pokemon-number">{`${pokemon.id.toString().padStart(3, '0')}`}</span>
 	</div>
 	<img src={pokemon.sprites.other.dream_world?.front_default} alt={pokemon.name} />
 </div>
