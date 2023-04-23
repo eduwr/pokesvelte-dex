@@ -1,0 +1,23 @@
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+@mixin mobile {
+	@media screen and (max-width: $breakpoint-sm) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (max-width: $breakpoint-md) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (max-width: $breakpoint-lg) {
+		@content;
+	}
+}

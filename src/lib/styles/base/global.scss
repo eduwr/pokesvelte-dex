@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Bruno Ace';
+    src: url(fonts/BrunoAce-Regular.ttf) format('truetype');
+	display: swap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+	font-family: 'Bruno Ace', cursive;
+}
