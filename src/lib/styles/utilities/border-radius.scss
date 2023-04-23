@@ -1,0 +1,35 @@
+$b-radius-none: 0;
+$b-radius-sm: 0.125rem;
+$b-radius: 0.25rem;
+$b-radius-md: 0.375rem;
+$b-radius-lg: 0.5rem;
+$b-radius-xl: 0.75rem;
+$b-radius-2xl: 1rem;
+
+@mixin rounded-none {
+	border-radius: $b-radius-none;
+}
+
+@mixin rounded-sm {
+	border-radius: $b-radius-sm;
+}
+
+@mixin rounded {
+	border-radius: $b-radius;
+}
+
+@mixin rounded-md {
+	border-radius: $b-radius-md;
+}
+
+@mixin rounded-lg {
+	border-radius: $b-radius-lg;
+}
+
+@mixin rounded-xl {
+	border-radius: $b-radius-xl;
+}
+
+@mixin rounded-2xl {
+	border-radius: $b-radius-2xl;
+}

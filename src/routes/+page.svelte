@@ -33,7 +33,8 @@
 
 <style lang="scss">
 	@use '$lib/styles/utilities/breakpoints' as bp;
-	
+	@use '$lib/styles/utilities/border-radius' as r;
+
 	.hero {
 		display: flex;
 		flex-direction: column;
@@ -65,5 +66,14 @@
 	}
 
 	.pagination-container {
+		a {
+			font-size: x-large;
+			font-family: 'Bruno Ace', cursive;
+			padding: 1rem;
+			background-color: #e3e3e3;
+			@include r.rounded-xl;
+			color: #000;
+			opacity: 0.87;
+		}
 	}
 </style>
