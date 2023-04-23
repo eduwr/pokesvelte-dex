@@ -6,7 +6,7 @@
 	let pokemonNumber = `${pokemon.id.toString().padStart(3, '0')}`;
 </script>
 
-<div>
+<div class="card-container">
 	<div class="pokemon-info">
 		<span class="pokemon-name">{pokemon.name}</span>
 		<span class="pokemon-number">{pokemonNumber}</span>
@@ -15,7 +15,7 @@
 </div>
 
 <style>
-	div {
+	.card-container {
 		display: flex;
 		position: relative;
 		flex-direction: column;
@@ -24,13 +24,16 @@
 		background-color: #e3e3e3;
 		border-radius: 0.5rem;
 		overflow: hidden;
+		padding: 1rem 0.5rem;
 	}
 
-	div img {
+	.card-container img {
 		position: absolute;
-		bottom: 0;
+		bottom: 0.2rem;
+		right: 0.2rem;
 		z-index: 10;
 		width: 12rem;
+		height: 13rem;
 		max-height: 16rem;
 	}
 
@@ -39,15 +42,16 @@
 		flex-direction: column;
 		width: 100%;
 		font-weight: bold;
-		padding: 1rem;
 	}
 
 	.pokemon-number {
 		font-size: 5.5rem;
 		font-weight: bold;
+		opacity: 87%;
 	}
 
 	.pokemon-name {
 		font-size: 1rem;
+		opacity: 87%;
 	}
 </style>
