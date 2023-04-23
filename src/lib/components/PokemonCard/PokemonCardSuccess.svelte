@@ -2,12 +2,14 @@
 	import type { Pokemon } from 'lib/types/pokemon/Pokemon';
 
 	export let pokemon: Pokemon;
+
+	$: pokemonNumber = `${pokemon?.id?.toString().padStart(3, '0')}`;
 </script>
 
 <div class="card-container">
 	<div class="pokemon-info">
 		<span class="pokemon-name">{pokemon.name}</span>
-		<span class="pokemon-number">{`${pokemon.id.toString().padStart(3, '0')}`}</span>
+		<span class="pokemon-number">{pokemonNumber}</span>
 	</div>
 	<img src={pokemon.sprites.other.dream_world?.front_default} alt={pokemon.name} />
 </div>
