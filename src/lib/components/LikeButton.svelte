@@ -1,15 +1,19 @@
-<script>
+<script lang="ts">
 	import Heart from '$lib/icons/Heart.svelte';
 	import HeartEmpty from '$lib/icons/HeartEmpty.svelte';
 
-	let fav = false;
+	export let fav = false;
 
-	function toggleFav() {
-		fav = !fav;
-	}
+    type ClickHandler = (
+		e: MouseEvent & {
+			currentTarget: EventTarget & HTMLButtonElement;
+		}
+	) => void;
+
+	export let onClick: ClickHandler | undefined
 </script>
 
-<button on:click={toggleFav}>
+<button on:click={onClick}>
 	{#if fav}
 		<Heart />
 	{:else}

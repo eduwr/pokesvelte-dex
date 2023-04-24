@@ -1,5 +1,11 @@
 <script lang="ts">
 	import PokemonCard from '$lib/components/PokemonCard/PokemonCard.svelte';
+	import type { Pokemon } from 'lib/types/pokemon/Pokemon';
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
+
+	const favs = writable(new Map<Pick<Pokemon, 'id'>, boolean>());
+	setContext('favs', favs);
 
 	export let data: import('./$types').PageData;
 

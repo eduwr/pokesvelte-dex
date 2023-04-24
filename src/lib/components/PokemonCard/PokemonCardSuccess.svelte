@@ -1,16 +1,31 @@
 <script lang="ts">
-	import Heart from '$lib/icons/Heart.svelte';
 	import type { Pokemon } from '$lib/types/pokemon/Pokemon';
 	import LikeButton from '$lib/components/LikeButton.svelte';
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+
+	const store: Writable<Map<number, boolean>> = getContext('favs');
+
+	let favsState: Map<number, boolean>; 
+
+	store.subscribe(state => {
+		favsState = state;
+	});
 
 	export let pokemon: Pokemon;
 
 	$: pokemonNumber = `${pokemon?.id?.toString().padStart(3, '0')}`;
+	$: isFav = favsState.get(pokemon.id)
+
+	let handleClick = () => {
+		store.update(prev => prev.set(pokemon.id, !favsState.get(pokemon.id)))
+	}
+
 </script>
 
 <div class="card-container">
 	<div class="like-btn-container">
-		<LikeButton />
+		<LikeButton fav={isFav} onClick={handleClick} />
 	</div>
 	<div class="pokemon-info">
 		<span class="pokemon-name">{pokemon.name}</span>
