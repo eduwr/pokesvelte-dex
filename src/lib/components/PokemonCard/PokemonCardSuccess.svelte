@@ -1,5 +1,7 @@
 <script lang="ts">
-	import type { Pokemon } from 'lib/types/pokemon/Pokemon';
+	import Heart from '$lib/icons/Heart.svelte';
+	import type { Pokemon } from '$lib/types/pokemon/Pokemon';
+	import LikeButton from '$lib/components/LikeButton.svelte';
 
 	export let pokemon: Pokemon;
 
@@ -7,6 +9,9 @@
 </script>
 
 <div class="card-container">
+	<div class="like-btn-container">
+		<LikeButton />
+	</div>
 	<div class="pokemon-info">
 		<span class="pokemon-name">{pokemon.name}</span>
 		<span class="pokemon-number">{pokemonNumber}</span>
@@ -24,7 +29,14 @@
 		background-color: #e3e3e3;
 		border-radius: 0.5rem;
 		overflow: hidden;
-		padding: 1rem 0.5rem;
+		padding: 2rem 0.5rem;
+
+		.like-btn-container {
+			position: absolute;
+			top: 0.5rem;
+			right: 0.5rem;
+		}
+
 		img {
 			position: absolute;
 			bottom: 0.2rem;
