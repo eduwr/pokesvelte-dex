@@ -4,23 +4,35 @@
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
-	const store: Writable<Map<number, boolean>> = getContext('favs');
+	const store: Writable<Map<number, Pokemon>> = getContext('favs');
 
-	let favsState: Map<number, boolean>; 
+	let favsState: Map<number, Pokemon>;
 
-	store.subscribe(state => {
+	store.subscribe((state) => {
 		favsState = state;
 	});
 
 	export let pokemon: Pokemon;
 
 	$: pokemonNumber = `${pokemon?.id?.toString().padStart(3, '0')}`;
-	$: isFav = favsState.get(pokemon.id)
+	$: isFav = !!favsState.get(pokemon.id);
 
 	let handleClick = () => {
-		store.update(prev => prev.set(pokemon.id, !favsState.get(pokemon.id)))
-	}
+		const pokemonStored = favsState.get(pokemon.id);
 
+		if (pokemonStored) {
+			return store.update((prev) => {
+				prev.delete(pokemon.id);
+				return prev;
+			});
+		}
+
+		return store.update((prev) => {
+			prev.set(pokemon.id, pokemon);
+
+			return prev;
+		});
+	};
 </script>
 
 <div class="card-container">

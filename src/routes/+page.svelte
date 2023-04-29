@@ -4,7 +4,7 @@
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
-	const favs = writable(new Map<Pick<Pokemon, 'id'>, boolean>());
+	const favs = writable(new Map<Pick<Pokemon, 'id'>, Pokemon>());
 	setContext('favs', favs);
 
 	export let data: import('./$types').PageData;
@@ -55,13 +55,11 @@
 		}
 
 		@include bp.tablet {
-			padding: 1rem;
-			background-color: red;
+			padding: 1rem; 
 		}
 
 		@include bp.mobile {
-			padding: 0.2rem;
-			background-color: greenyellow;
+			padding: 0.2rem; 
 		}
 	}
 
